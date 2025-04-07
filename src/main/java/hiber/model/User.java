@@ -19,17 +19,19 @@ public class User {
    @Column(name = "email")
    private String email;
 
+   @Column(name = "age")
+   private byte age;
+
    @OneToOne(cascade = CascadeType.ALL)
    @JoinColumn(name = "car_id")
    private Car car;
 
    public User() {}
    
-   public User(String firstName, String lastName, String email) {
+   public User(String firstName, String lastName, byte age) {
       this.firstName = firstName;
       this.lastName = lastName;
-      this.email = email;
-      this.car = car;
+      this.age = age;
    }
 
    public Long getId() {
@@ -70,5 +72,13 @@ public class User {
 
    public void setCar(Car car) {
       this.car = car;
+   }
+
+   public byte getAge() {
+      return age;
+   }
+
+   public void setAge(byte age) {
+      this.age = age;
    }
 }
